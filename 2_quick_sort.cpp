@@ -36,3 +36,24 @@ void quickSort(int arr[], int low, int high)
 		quickSort(arr, middle+1, high);
 	}
 }
+
+
+const int maxn = 100;
+int quick_sort_main()
+{
+	int n;
+	int arr[maxn];
+	cin >> n;
+	for (int i=0; i<n; i++)
+	{
+		cin >> arr[i];
+	}
+	quickSort(arr, 0, n-1);
+	for (int i=0; i<n; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+
+	return 0;
+}

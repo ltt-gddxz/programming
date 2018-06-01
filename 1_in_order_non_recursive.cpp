@@ -38,7 +38,7 @@ struct Node
 };
 
 // 层次遍历建树
-Node *buildTree()
+Node *build_tree()
 {
 	int data, ldata, rdata;
 	cin >> data;
@@ -69,7 +69,7 @@ Node *buildTree()
 }
 
 // 中序非递归算法
-void nonRecursiveInOrder(Node *root)
+void in_order_non_recursive(Node *root)
 {
 	if (root == NULL)
 		return;
@@ -91,4 +91,14 @@ void nonRecursiveInOrder(Node *root)
 			p = p->rchild;
 		}
 	}
+}
+
+// main 函数
+int in_order_non_recursive_main()
+{
+	Node *root = build_tree();
+	in_order_non_recursive(root);
+	cout << endl;
+	system("pause");
+	return 0;
 }
