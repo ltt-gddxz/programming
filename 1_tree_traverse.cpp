@@ -120,7 +120,7 @@ vector<TreeNode *> dfs(TreeNode *T) {
 	return res;
 }
 
-int main() {
+int tree_traverse_main() {
 
 	TreeNode* root = new TreeNode(1);
 	TreeNode* node2 = new TreeNode(2);
