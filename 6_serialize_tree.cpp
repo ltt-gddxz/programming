@@ -1,4 +1,4 @@
-/* nowcoder äºŒå‰æ ‘ä¸ŽåŒå‘é“¾è¡¨ï¼šå°†äºŒå‰æ ‘è½¬æ¢æˆåŒå‘é“¾è¡¨
+/* nowcoder ¶þ²æÊ÷ÓëË«ÏòÁ´±í£º½«¶þ²æÊ÷×ª»»³ÉË«ÏòÁ´±í
 struct TreeNode {
 	int val;
 	struct TreeNode *left;
@@ -7,38 +7,38 @@ struct TreeNode {
 		val(x), left(NULL), right(NULL) {
 	}
 };*/
+
 class Solution {
 public:
-    void in_order(TreeNode* root, TreeNode* &pre) {
-		// çº¿ç´¢åŒ–å·¦å­æ ‘
+	void in_order(TreeNode* root, TreeNode* &pre) {
+		// ÏßË÷»¯×ó×ÓÊ÷
 		if (root->left)
 			in_order(root->left, pre);
-        
-		// é“¾æŽ¥å·¦å­æ ‘ä¸Žæ ¹èŠ‚ç‚¹
+
+		// Á´½Ó×ó×ÓÊ÷Óë¸ù½Úµã
 		if (pre)
 			pre->right = root;
 		root->left = pre;
 		pre = root;
-        
-		// çº¿ç´¢åŒ–å³å­æ ‘
+
+		// ÏßË÷»¯ÓÒ×ÓÊ÷
 		if (root->right)
 			in_order(root->right, pre);
-        
-    }
-    
-    TreeNode* Convert(TreeNode* pRootOfTree)
-    {
-        TreeNode* root = pRootOfTree;
-        if (!root) return NULL;
-        
-        TreeNode* pre=NULL;
-        in_order(root, pre);
-        
-		// ç›´æŽ¥åœ¨åŒå‘é“¾è¡¨ä¸­å¯»æ‰¾ä¸­åºéåŽ†çš„ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ï¼Œå³ä¸ºåŒå‘é“¾è¡¨çš„å¤´ç»“ç‚¹
-        TreeNode *p=root;
-        while (p->left) p = p->left;
-        root = p;
-		
-        return root;
-    }
+
+	}
+
+	TreeNode* Convert(TreeNode* pRootOfTree)
+	{
+		TreeNode* root = pRootOfTree;
+		if (!root) return NULL;
+
+		TreeNode* pre = NULL;
+		in_order(root, pre);
+
+		// Ö±½ÓÔÚË«ÏòÁ´±íÖÐÑ°ÕÒÖÐÐò±éÀúµÄµÚÒ»¸ö½Úµã£¬¼´ÎªË«ÏòÁ´±íµÄÍ·½áµã
+		TreeNode *p = root;
+		while (p->left) p = p->left;
+		root = p;
+		return root;
+	}
 };
