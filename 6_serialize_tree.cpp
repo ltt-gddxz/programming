@@ -4,25 +4,25 @@ struct TreeNode {
 	struct TreeNode *left;
 	struct TreeNode *right;
 	TreeNode(int x) :
-			val(x), left(NULL), right(NULL) {
+		val(x), left(NULL), right(NULL) {
 	}
 };*/
 class Solution {
 public:
     void in_order(TreeNode* root, TreeNode* &pre) {
-        // 线索化左子树
+		// 线索化左子树
 		if (root->left)
-            in_order(root->left, pre);
+			in_order(root->left, pre);
         
 		// 链接左子树与根节点
-        if (pre)
-            pre->right = root;
-        root->left = pre;
-        pre = root;
+		if (pre)
+			pre->right = root;
+		root->left = pre;
+		pre = root;
         
 		// 线索化右子树
-        if (root->right)
-            in_order(root->right, pre);
+		if (root->right)
+			in_order(root->right, pre);
         
     }
     
