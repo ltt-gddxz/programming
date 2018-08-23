@@ -10,14 +10,17 @@ struct TreeNode {
 class Solution {
 public:
     void in_order(TreeNode* root, TreeNode* &pre) {
-        if (root->left)
+        // 线索化左子树
+		if (root->left)
             in_order(root->left, pre);
         
+		// 链接左子树与根节点
         if (pre)
             pre->right = root;
         root->left = pre;
         pre = root;
         
+		// 线索化右子树
         if (root->right)
             in_order(root->right, pre);
         
@@ -31,9 +34,11 @@ public:
         TreeNode* pre=NULL;
         in_order(root, pre);
         
+		// 直接在双向链表中寻找中序遍历的第一个节点，即为双向链表的头结点
         TreeNode *p=root;
         while (p->left) p = p->left;
         root = p;
+		
         return root;
     }
 };
